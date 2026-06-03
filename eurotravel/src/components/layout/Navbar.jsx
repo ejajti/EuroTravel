@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Phone, Menu, X, MessageCircle } from 'lucide-react';
-import logoImg from '../../assets/images/logo.jpg';
+import logoImg from '../../assets/images/logo.png';
 
 const PHONE = '+381 693 539 444';
 const PHONE_HREF = 'tel:+381693539444';

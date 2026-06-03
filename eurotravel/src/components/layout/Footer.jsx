@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, ExternalLink } from 'lucide-react';
-import logoImg from '../../assets/images/logo.jpg';
+import logoImg from '../../assets/images/logo.png';
 
 const NAV_LINKS = [
   { label: 'Početna',    to: '/' },
