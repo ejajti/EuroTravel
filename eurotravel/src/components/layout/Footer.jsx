@@ -24,13 +24,12 @@ export default function Footer() {
 
           {/* Col 1 – Logo + description */}
           <div className="flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2.5 w-fit">
-              <span className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center font-display font-bold text-navy text-base leading-none select-none">
-                ET
-              </span>
-              <span className="text-white font-display font-semibold text-lg">
-                Euro Travel
-              </span>
+            <Link to="/" className="w-fit">
+              <img
+                src="/src/assets/images/logo.jpeg"
+                alt="Euro Travel logo"
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="text-sm leading-relaxed text-white/55 max-w-xs">
               Pouzdani kombi prevoz putnika iz Srbije u Evropu. Udobnost,

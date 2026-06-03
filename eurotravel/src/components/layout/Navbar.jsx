@@ -144,13 +144,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <span className="w-9 h-9 rounded-lg bg-gold flex items-center justify-center font-display font-bold text-navy text-base leading-none select-none">
-              ET
-            </span>
-            <span className="text-white font-display font-semibold text-lg leading-tight hidden sm:block">
-              Euro Travel
-            </span>
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src="/src/assets/images/logo.jpeg"
+              alt="Euro Travel logo"
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}
