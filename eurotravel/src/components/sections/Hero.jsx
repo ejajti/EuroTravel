@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MessageCircle, ChevronDown } from 'lucide-react';
+import { MessageCircle, ChevronDown, Phone } from 'lucide-react';
 import Button from '../ui/Button';
 
 const container = {
@@ -16,6 +16,14 @@ const fadeUp = {
 function FloatingButtons() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+      <a
+        href="tel:+381693539444"
+        aria-label="Pozovite nas"
+        className="relative w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-150"
+      >
+        <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-40" />
+        <Phone size={26} className="text-white relative z-10" />
+      </a>
       <a
         href="viber://chat?number=%2B381693539444"
         aria-label="Kontaktirajte nas na Viber"

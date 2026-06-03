@@ -6,6 +6,8 @@ import hendrikImg    from '../assets/images/hendrik-morkel-002kiku-xOM-unsplash.
 import damianoImg    from '../assets/images/damiano-baschiera-hFXZ5cNfkOk-unsplash.jpg';
 import dimitrijeImg  from '../assets/images/dimitrije-milenkovic-Wa9gkmHOTf8-unsplash.jpg';
 
+export const UNAVAILABLE_DESTINATIONS = ['italija', 'slovenija', 'bih'];
+
 export const destinations = [
   {
     id: 1,
@@ -13,14 +15,47 @@ export const destinations = [
     name: 'Hrvatska',
     country: 'Hrvatska',
     flag: '🇭🇷',
-    cities: ['Zagreb', 'Rijeka', 'Split'],
-    priceFrom: 50,
+    cities: ['Zagreb', 'Rijeka', 'Split', 'Istra', 'Zadar'],
+    priceFrom: 60,
     currency: 'EUR',
     description:
-      'Hrvatska nudi predivnu jadransku obalu, istorijske gradove i kristalno čisto more. Idealna destinacija za porodična putovanja i ljetovanje uz udoban kombi prevoz.',
+      'Hrvatska nudi predivnu jadransku obalu, istorijske gradove i kristalno čisto more. Od živopisnog Zagreba do sunčane Istre i dalmatisnke obale, svaka destinacija odiše posebnim šarmom. Naš kombi prevoz pokriva sve ključne regije — Zagreb, Karlovac, Istru, Split i Zadar — uz direktan i udoban prevoz od vrata do vrata. Idealna destinacija za porodična putovanja i letovanje.',
     highlights: ['Jadransko more', 'Stari gradovi', 'Nacionalni parkovi'],
     image: spencerImg,
     popular: true,
+    regions: [
+      {
+        name: 'Rijeka i Opatija',
+        cities: ['Rijeka', 'Opatija'],
+        oneWay: 75,
+        roundTrip: 140,
+      },
+      {
+        name: 'Istra',
+        cities: ['Novigrad', 'Umag', 'Poreč', 'Rovinj', 'Vrsar', 'Pula', 'Medulin'],
+        oneWay: 85,
+        roundTrip: 160,
+      },
+      {
+        name: 'Split i Zadar',
+        cities: ['Split', 'Zadar'],
+        oneWay: 90,
+        roundTrip: 170,
+      },
+      {
+        name: 'Zagreb',
+        cities: ['Zagreb'],
+        oneWay: 60,
+        roundTrip: 110,
+      },
+      {
+        name: 'Karlovac',
+        cities: ['Karlovac'],
+        oneWay: 70,
+        roundTrip: 130,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
   {
     id: 2,
@@ -28,14 +63,41 @@ export const destinations = [
     name: 'Grčka',
     country: 'Grčka',
     flag: '🇬🇷',
-    cities: ['Halkidiki', 'Atina'],
+    cities: ['Solun', 'Halkidiki', 'Kasandra', 'Paralija'],
     priceFrom: 75,
     currency: 'EUR',
     description:
-      'Grčka je zemlja bogata istorijom, mitologijom i prelepim plažama Egejskog mora. Halkidiki je posebno popularan odred za letnji odmor sa porodicom.',
+      'Grčka je zemlja bogata istorijom, mitologijom i prelepim plažama Egejskog mora. Od živopisnog Soluna do kristalno čistih voda Halkidikija, svaka destinacija nudi nezaboravno iskustvo. Naš kombi prevoz pokriva sve ključne regije — Kasandru, Sitoniju i Olimpijsku obalu — uz udoban i direktan prevoz od vrata do vrata. Idealna destinacija za porodična putovanja, letovanje sa prijateljima ili romantični odmor uz Mediteran.',
     highlights: ['Plaže Halkidikija', 'Antička Atina', 'Mediteranska kuhinja'],
     image: ryanImg,
     popular: true,
+    regions: [
+      {
+        name: 'Solun i okolina',
+        cities: ['Solun', 'Perea', 'Nea Kalikratija', 'Nea Mudanja'],
+        oneWay: 75,
+        roundTrip: 140,
+      },
+      {
+        name: 'Sitonija',
+        cities: ['Sarti', 'Neos Marmaras', 'Nikiti', 'Vurvuru', 'Toroni', 'Metamorfosis'],
+        oneWay: 80,
+        roundTrip: 150,
+      },
+      {
+        name: 'Kasandra',
+        cities: ['Hanioti', 'Pefkohori', 'Polihrono', 'Kalitea', 'Afitos', 'Siviri'],
+        oneWay: 75,
+        roundTrip: 140,
+      },
+      {
+        name: 'Olimpijska regija',
+        cities: ['Paralija'],
+        oneWay: 80,
+        roundTrip: 150,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
   {
     id: 3,
@@ -73,14 +135,29 @@ export const destinations = [
     name: 'Makedonija',
     country: 'Severna Makedonija',
     flag: '🇲🇰',
-    cities: ['Skoplje'],
-    priceFrom: 70,
+    cities: ['Skoplje', 'Ohrid'],
+    priceFrom: 65,
     currency: 'EUR',
     description:
-      'Severna Makedonija je zemlja bogate istorije, živopisne kulture i pristupačnih cena. Skoplje je moderan balkanski grad koji se brzo razvija kao turistička destinacija.',
+      'Severna Makedonija je zemlja bogate istorije, živopisne kulture i pristupačnih cena. Skoplje je moderan balkanski grad koji se brzo razvija kao turistička destinacija, dok je Ohrid biser Balkana sa kristalno čistim jezerom i starovekovnom arhitekturom. Idealna destinacija za kratke odmore i vikend putovanja uz udoban kombi prevoz od vrata do vrata.',
     highlights: ['Skoplje', 'Ohridsko jezero', 'Balkanska kuhinja'],
     image: hendrikImg,
     popular: false,
+    regions: [
+      {
+        name: 'Skoplje',
+        cities: ['Skoplje'],
+        oneWay: 70,
+        roundTrip: 130,
+      },
+      {
+        name: 'Ohrid',
+        cities: ['Ohrid'],
+        oneWay: 65,
+        roundTrip: 120,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
   {
     id: 6,
@@ -103,13 +180,22 @@ export const destinations = [
     name: 'Srbija',
     country: 'Srbija',
     flag: '🇷🇸',
-    cities: ['Beograd', 'Novi Sad', 'Niš'],
+    cities: ['Kopaonik'],
     priceFrom: 30,
     currency: 'EUR',
     description:
-      'Srbija nudi živopisni noćni život, bogatu istoriju i toplo gostoprimstvo. Beograd je jedan od najdinamičnijih gradova regiona.',
-    highlights: ['Beograd noćni život', 'Exit Festival', 'Srpska kuhinja'],
+      'Kopaonik je najveće i najpopularnije planinsko odredište u Srbiji, poznato po izvrsnim ski stazama zimi i bujnoj prirodi leti. Uz udoban kombi prevoz od vrata do vrata, put do Kopaonika nikada nije bio lakši.',
+    highlights: ['Ski staze', 'Planinska priroda', 'Zimski odmor'],
     image: dimitrijeImg,
     popular: false,
+    regions: [
+      {
+        name: 'Kopaonik',
+        cities: ['Kopaonik'],
+        oneWay: 30,
+        roundTrip: 50,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
 ];
