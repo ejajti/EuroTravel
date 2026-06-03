@@ -49,11 +49,13 @@ function FieldError({ msg }) {
   );
 }
 
+const VIBER_NUMBER = '%2B381693539444';
+
 export default function Contact() {
-  const [form, setForm]       = useState({ name: '', email: '', phone: '', message: '' });
-  const [errors, setErrors]   = useState({});
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent]       = useState(false);
+  const [form, setForm]             = useState({ name: '', email: '', phone: '', message: '' });
+  const [errors, setErrors]         = useState({});
+  const [loadingChannel, setLoadingChannel] = useState(null);
+  const [sent, setSent]             = useState(false);
 
   function validate() {
     const e = {};
@@ -70,29 +72,38 @@ export default function Contact() {
     if (errors[name]) setErrors((p) => ({ ...p, [name]: '' }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-
-    setLoading(true);
-
-    const text = [
+  function buildText() {
+    return [
       `Zdravo! Kontaktujem vas putem sajta.`,
       `Ime i prezime: ${form.name}`,
       `Email: ${form.email}`,
       form.phone ? `Telefon: ${form.phone}` : null,
       `Poruka: ${form.message}`,
     ].filter(Boolean).join('\n');
+  }
 
-    // Simulate brief loading then open WA
+  function handleSend(channel) {
+    const errs = validate();
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    setLoadingChannel(channel);
+    const text = buildText();
+
     setTimeout(() => {
-      window.open(
-        `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,
-        '_blank',
-        'noopener,noreferrer',
-      );
-      setLoading(false);
+      if (channel === 'whatsapp') {
+        window.open(
+          `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,
+          '_blank',
+          'noopener,noreferrer',
+        );
+      } else {
+        window.open(
+          `viber://chat?number=${VIBER_NUMBER}`,
+          '_blank',
+          'noopener,noreferrer',
+        );
+      }
+      setLoadingChannel(null);
       setSent(true);
       setForm({ name: '', email: '', phone: '', message: '' });
     }, 800);
@@ -211,7 +222,7 @@ export default function Contact() {
                     Poruka je poslata!
                   </h3>
                   <p className="text-navy/60 text-sm max-w-xs leading-relaxed">
-                    WhatsApp chat je otvoren sa vašom porukom. Odgovorićemo vam u najkraćem roku.
+                    Chat je otvoren sa vašom porukom. Odgovorićemo vam u najkraćem roku.
                   </p>
                   <button
                     onClick={() => setSent(false)}
@@ -223,7 +234,7 @@ export default function Contact() {
               ) : (
                 <motion.form
                   key="form"
-                  onSubmit={handleSubmit}
+                  onSubmit={(e) => e.preventDefault()}
                   noValidate
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -299,27 +310,50 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
-                  <motion.button
-                    type="submit"
-                    disabled={loading}
-                    whileTap={{ scale: loading ? 1 : 0.97 }}
-                    className="flex items-center justify-center gap-2 bg-gold hover:bg-gold-dark disabled:opacity-70 disabled:cursor-not-allowed text-navy font-bold py-3.5 rounded-xl transition-colors duration-150 text-sm"
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 size={17} className="animate-spin" />
-                        Slanje…
-                      </>
-                    ) : (
-                      <>
-                        <MessageCircle size={17} />
-                        Pošaljite putem WhatsApp
-                      </>
-                    )}
-                  </motion.button>
+                  <div className="grid grid-cols-2 gap-3">
+                    <motion.button
+                      type="button"
+                      disabled={!!loadingChannel}
+                      onClick={() => handleSend('whatsapp')}
+                      whileTap={{ scale: loadingChannel ? 1 : 0.97 }}
+                      className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-colors duration-150 text-sm"
+                    >
+                      {loadingChannel === 'whatsapp' ? (
+                        <>
+                          <Loader2 size={17} className="animate-spin" />
+                          Slanje…
+                        </>
+                      ) : (
+                        <>
+                          <MessageCircle size={17} />
+                          WhatsApp
+                        </>
+                      )}
+                    </motion.button>
+
+                    <motion.button
+                      type="button"
+                      disabled={!!loadingChannel}
+                      onClick={() => handleSend('viber')}
+                      whileTap={{ scale: loadingChannel ? 1 : 0.97 }}
+                      className="flex items-center justify-center gap-2 bg-[#7360F2] hover:bg-[#6250e0] disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-colors duration-150 text-sm"
+                    >
+                      {loadingChannel === 'viber' ? (
+                        <>
+                          <Loader2 size={17} className="animate-spin" />
+                          Slanje…
+                        </>
+                      ) : (
+                        <>
+                          <MessageCircle size={17} />
+                          Viber
+                        </>
+                      )}
+                    </motion.button>
+                  </div>
 
                   <p className="text-navy/35 text-xs text-center">
-                    Klikom na dugme otvoriće se WhatsApp sa vašom porukom.
+                    Izaberite aplikaciju — otvoriće se chat sa vašim podacima.
                   </p>
                 </motion.form>
               )}

@@ -105,14 +105,23 @@ export const destinations = [
     name: 'Slovenija',
     country: 'Slovenija',
     flag: '🇸🇮',
-    cities: ['Ljubljana', 'Maribor'],
-    priceFrom: 75,
+    cities: ['Ljubljana', 'Maribor', 'Bled', 'Celje', 'Ptuj'],
+    priceFrom: 70,
     currency: 'EUR',
     description:
-      'Slovenija je mala zemlja velikh prirodnih lepota — od alpskih planina do Jadranskog mora. Ljubljana je jedan od najlepših malih gradova Evrope.',
+      'Slovenija je mala zemlja velikih prirodnih lepota — od alpskih planina i bajkovitog jezera Bled do živopisne Ljubljane i istorijskih gradova poput Maribora, Celja i Ptuja. Naš kombi prevoz pokriva sve ključne destinacije uz direktan i udoban prevoz od vrata do vrata. Idealna za kratke odmore i vikend putovanja.',
     highlights: ['Alpske planine', 'Jezero Bled', 'Ljubljana'],
     image: joannaImg,
     popular: false,
+    regions: [
+      {
+        name: 'Slovenija',
+        cities: ['Ljubljana', 'Maribor', 'Celje', 'Ptuj', 'Novo Mesto', 'Brežice', 'Bled'],
+        oneWay: 70,
+        roundTrip: 130,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
   {
     id: 4,

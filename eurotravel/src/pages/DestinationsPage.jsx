@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { destinations, UNAVAILABLE_DESTINATIONS } from '../data/destinations';
 import Badge from '../components/ui/Badge';
+import FloatingButtons from '../components/ui/FloatingButtons';
 
 const containerVariants = {
   hidden: {},
@@ -68,6 +69,7 @@ export default function DestinationsPage() {
 
   return (
     <main className="bg-navy min-h-screen pt-10 pb-20 px-4 sm:px-6">
+      <FloatingButtons />
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}

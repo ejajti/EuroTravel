@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ClipboardList, PhoneCall, CheckSquare, Car, CreditCard, Smile } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 import VehicleRental from '../components/sections/VehicleRental';
+import FloatingButtons from '../components/ui/FloatingButtons';
 
 const STEPS = [
   {
@@ -52,6 +53,7 @@ export default function RentalPage() {
 
   return (
     <main>
+      <FloatingButtons />
       <VehicleRental />
 
       {/* Rental process */}
