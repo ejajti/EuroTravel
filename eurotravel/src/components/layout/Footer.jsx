@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, ExternalLink } from 'lucide-react';
+import logoImg from '../../assets/images/logo.jpeg';
 
 const NAV_LINKS = [
   { label: 'Početna',    to: '/' },
@@ -26,7 +27,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Link to="/" className="w-fit">
               <img
-                src="/src/assets/images/logo.jpeg"
+                src={logoImg}
                 alt="Euro Travel logo"
                 className="h-9 w-auto"
               />

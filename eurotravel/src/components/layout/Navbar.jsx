@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Phone, Menu, X, MessageCircle } from 'lucide-react';
+import logoImg from '../../assets/images/logo.jpeg';
 
 const PHONE = '+381 693 539 444';
 const PHONE_HREF = 'tel:+381693539444';
@@ -146,7 +147,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
             <img
-              src="/src/assets/images/logo.jpeg"
+              src={logoImg}
               alt="Euro Travel logo"
               className="h-9 w-auto"
             />
