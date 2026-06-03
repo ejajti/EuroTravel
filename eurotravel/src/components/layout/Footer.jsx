@@ -29,7 +29,7 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Euro Travel logo"
-                className="h-9 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/55 max-w-xs">
