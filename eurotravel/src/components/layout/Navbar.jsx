@@ -149,7 +149,7 @@ export default function Navbar() {
             <img
               src={logoImg}
               alt="Euro Travel logo"
-              className="h-16 w-auto"
+              className="h-32 w-auto"
             />
           </Link>
 
