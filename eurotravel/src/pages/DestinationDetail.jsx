@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, CheckCircle, MessageCircle, Star, ArrowRight, ArrowLeftRight, Bus, AlertTriangle } from 'lucide-react';
@@ -7,7 +6,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import Badge from '../components/ui/Badge';
 
 const WA_BASE = 'https://wa.me/381693539444';
-const VIBER_BASE = 'viber://chat?number=381693539444';
+const VIBER_BASE = 'viber://chat?number=%2B381693539444';
 
 function RegionCard({ region, destName }) {
   const msg = `Zdravo! Zanima me prevoz do ${destName} - ${region.name}. Možete li mi poslati ponudu?`;

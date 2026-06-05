@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { destinations, UNAVAILABLE_DESTINATIONS } from '../../data/destinations';
 import Badge from '../ui/Badge';
 
