@@ -10,6 +10,7 @@ const DestinationDetail = lazy(() => import('./pages/DestinationDetail'));
 const PricingPage      = lazy(() => import('./pages/PricingPage'));
 const RentalPage       = lazy(() => import('./pages/RentalPage'));
 const ContactPage      = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage     = lazy(() => import('./pages/NotFoundPage'));
 
 function PageSpinner() {
   return (
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
       { path: '/cene',               element: <PricingPage /> },
       { path: '/najam',              element: <RentalPage /> },
       { path: '/kontakt',            element: <ContactPage /> },
+      { path: '*',                   element: <NotFoundPage /> },
     ],
   },
 ]);

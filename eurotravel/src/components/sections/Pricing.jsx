@@ -2,8 +2,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Check, Info } from 'lucide-react';
 import { destinations } from '../../data/destinations';
 import Badge from '../ui/Badge';
-
-const WA_BASE = 'https://wa.me/381693539444';
+import { WA_BASE } from '../../data/contact';
 
 const containerVariants = {
   hidden: {},

@@ -4,9 +4,7 @@ import { ArrowLeft, MapPin, CheckCircle, MessageCircle, Star, ArrowRight, ArrowL
 import { destinations, UNAVAILABLE_DESTINATIONS } from '../data/destinations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import Badge from '../components/ui/Badge';
-
-const WA_BASE = 'https://wa.me/381693539444';
-const VIBER_BASE = 'viber://chat?number=%2B381693539444';
+import { WA_BASE, VIBER_HREF } from '../data/contact';
 
 function RegionCard({ region, destName }) {
   const msg = `Zdravo! Zanima me prevoz do ${destName} - ${region.name}. Možete li mi poslati ponudu?`;
@@ -54,7 +52,7 @@ function RegionCard({ region, destName }) {
           WhatsApp
         </a>
         <a
-          href={`${VIBER_BASE}&text=${encodeURIComponent(msg)}`}
+          href={`${VIBER_HREF}&text=${encodeURIComponent(msg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-1.5 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"

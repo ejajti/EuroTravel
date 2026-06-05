@@ -1,10 +1,11 @@
 import { MessageCircle, Phone } from 'lucide-react';
+import { PHONE_PRIMARY_HREF, VIBER_HREF, WA_BASE } from '../../data/contact';
 
 export default function FloatingButtons() {
   return (
     <div className="fixed bottom-24 right-4 z-50 flex flex-col items-center gap-2">
       <a
-        href="tel:+381693539444"
+        href={PHONE_PRIMARY_HREF}
         aria-label="Pozovite nas"
         className="relative w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-150"
       >
@@ -12,7 +13,7 @@ export default function FloatingButtons() {
         <Phone size={26} className="text-white relative z-10" />
       </a>
       <a
-        href="viber://chat?number=%2B381693539444"
+        href={VIBER_HREF}
         aria-label="Kontaktirajte nas na Viber"
         className="relative w-14 h-14 rounded-full bg-[#7360F2] flex items-center justify-center shadow-lg hover:bg-[#6250e0] transition-colors duration-150"
       >
@@ -20,7 +21,7 @@ export default function FloatingButtons() {
         <MessageCircle size={26} className="text-white relative z-10" />
       </a>
       <a
-        href="https://wa.me/381693539444"
+        href={WA_BASE}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Kontaktirajte nas na WhatsApp"

@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, ExternalLink } from "lucide-react";
 import logoImg from "../../assets/images/logo.png";
+import {
+  PHONE_PRIMARY,
+  PHONE_PRIMARY_HREF,
+  FOOTER_EMAIL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+} from "../../data/contact";
 
 const NAV_LINKS = [
   { label: "Početna", to: "/" },
@@ -11,13 +18,9 @@ const NAV_LINKS = [
 ];
 
 const CONTACT = [
-  { icon: Phone, text: "+381 693 539 444", href: "tel:+381693539444" },
-  { icon: Mail, text: "info@eurotravel.rs", href: "mailto:info@eurotravel.rs" },
-  {
-    icon: ExternalLink,
-    text: "@eurotravel.rs",
-    href: "https://instagram.com/eurotravel.rs",
-  },
+  { icon: Phone,        text: PHONE_PRIMARY,    href: PHONE_PRIMARY_HREF },
+  { icon: Mail,         text: FOOTER_EMAIL,     href: `mailto:${FOOTER_EMAIL}` },
+  { icon: ExternalLink, text: INSTAGRAM_HANDLE, href: INSTAGRAM_URL },
 ];
 
 export default function Footer() {

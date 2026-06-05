@@ -103,7 +103,7 @@ export default function PricingPage() {
           <div className="flex flex-col gap-3">
             {FAQS.map((item, i) => (
               <FaqItem
-                key={i}
+                key={item.q}
                 item={item}
                 open={openIdx === i}
                 onToggle={() => toggle(i)}

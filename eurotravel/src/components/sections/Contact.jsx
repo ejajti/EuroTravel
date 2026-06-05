@@ -1,31 +1,39 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MessageCircle, ExternalLink, CheckCircle2, Loader2 } from 'lucide-react';
-
-const WA_NUMBER = '381693539444';
+import {
+  PHONE_PRIMARY,
+  PHONE_PRIMARY_HREF,
+  PHONE_SECONDARY,
+  PHONE_SECONDARY_HREF,
+  CONTACT_EMAIL,
+  WA_BASE,
+  VIBER_HREF,
+  INSTAGRAM_URL,
+} from '../../data/contact';
 
 const CONTACT_ITEMS = [
-  { icon: Phone,  label: '+381 693 539 444', href: 'tel:+381693539444' },
-  { icon: Phone,  label: '+381 61 614 4944', href: 'tel:+38161614944' },
-  { icon: Mail,   label: 'office@eurotravel.rs', href: 'mailto:office@eurotravel.rs' },
+  { icon: Phone, label: PHONE_PRIMARY,   href: PHONE_PRIMARY_HREF },
+  { icon: Phone, label: PHONE_SECONDARY, href: PHONE_SECONDARY_HREF },
+  { icon: Mail,  label: CONTACT_EMAIL,   href: `mailto:${CONTACT_EMAIL}` },
 ];
 
 const SOCIAL_BUTTONS = [
   {
     label: 'WhatsApp',
-    href: `https://wa.me/${WA_NUMBER}`,
+    href: WA_BASE,
     bg: 'bg-[#25D366] hover:bg-[#1ebe5d]',
     icon: MessageCircle,
   },
   {
     label: 'Viber',
-    href: 'viber://chat?number=%2B381693539444',
+    href: VIBER_HREF,
     bg: 'bg-[#7360F2] hover:bg-[#6250e0]',
     icon: MessageCircle,
   },
   {
     label: 'Instagram',
-    href: 'https://instagram.com/eurotravel.rs',
+    href: INSTAGRAM_URL,
     bg: 'bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] hover:opacity-90',
     icon: ExternalLink,
   },
@@ -48,8 +56,6 @@ function FieldError({ msg }) {
     </AnimatePresence>
   );
 }
-
-const VIBER_NUMBER = '%2B381693539444';
 
 export default function Contact() {
   const [form, setForm]             = useState({ name: '', email: '', phone: '', message: '' });
@@ -92,13 +98,13 @@ export default function Contact() {
     setTimeout(() => {
       if (channel === 'whatsapp') {
         window.open(
-          `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,
+          `${WA_BASE}?text=${encodeURIComponent(text)}`,
           '_blank',
           'noopener,noreferrer',
         );
       } else {
         window.open(
-          `viber://chat?number=${VIBER_NUMBER}`,
+          VIBER_HREF,
           '_blank',
           'noopener,noreferrer',
         );
