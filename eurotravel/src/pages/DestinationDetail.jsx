@@ -5,6 +5,7 @@ import { destinations, UNAVAILABLE_DESTINATIONS } from '../data/destinations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import Badge from '../components/ui/Badge';
 import { WA_BASE, VIBER_HREF } from '../data/contact';
+import ViberIcon from '../components/ui/ViberIcon';
 
 function RegionCard({ region, destName }) {
   const msg = `Zdravo! Zanima me prevoz do ${destName} - ${region.name}. Možete li mi poslati ponudu?`;
@@ -57,7 +58,7 @@ function RegionCard({ region, destName }) {
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-1.5 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"
         >
-          <MessageCircle size={13} />
+          <ViberIcon size={13} />
           Viber
         </a>
       </div>

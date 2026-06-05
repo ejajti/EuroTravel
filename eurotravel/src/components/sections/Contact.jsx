@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react';
 import InstagramIcon from '../ui/InstagramIcon';
+import ViberIcon from '../ui/ViberIcon';
 import {
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
@@ -30,7 +31,7 @@ const SOCIAL_BUTTONS = [
     label: 'Viber',
     href: VIBER_HREF,
     bg: 'bg-[#7360F2] hover:bg-[#6250e0]',
-    icon: MessageCircle,
+    icon: ViberIcon,
   },
   {
     label: 'Instagram',
@@ -352,7 +353,7 @@ export default function Contact() {
                         </>
                       ) : (
                         <>
-                          <MessageCircle size={17} />
+                          <ViberIcon size={17} />
                           Viber
                         </>
                       )}
