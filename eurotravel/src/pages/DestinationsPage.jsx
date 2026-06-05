@@ -104,15 +104,9 @@ export default function DestinationsPage() {
           animate="visible"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {[...destinations]
-            .sort((a, b) => {
-              const aUnavailable = UNAVAILABLE_DESTINATIONS.includes(a.slug);
-              const bUnavailable = UNAVAILABLE_DESTINATIONS.includes(b.slug);
-              return aUnavailable - bUnavailable;
-            })
-            .map((dest) => (
-              <DestCard key={dest.id} dest={dest} />
-            ))}
+          {destinations.map((dest) => (
+            <DestCard key={dest.id} dest={dest} />
+          ))}
         </motion.div>
       </div>
     </main>

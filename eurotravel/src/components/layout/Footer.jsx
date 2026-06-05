@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, ExternalLink } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import logoImg from "../../assets/images/logo.png";
+import InstagramIcon from "../ui/InstagramIcon";
 import {
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
@@ -18,9 +19,9 @@ const NAV_LINKS = [
 ];
 
 const CONTACT = [
-  { icon: Phone,        text: PHONE_PRIMARY,    href: PHONE_PRIMARY_HREF },
-  { icon: Mail,         text: FOOTER_EMAIL,     href: `mailto:${FOOTER_EMAIL}` },
-  { icon: ExternalLink, text: INSTAGRAM_HANDLE, href: INSTAGRAM_URL },
+  { icon: Phone,         text: PHONE_PRIMARY,    href: PHONE_PRIMARY_HREF },
+  { icon: Mail,          text: FOOTER_EMAIL,     href: `mailto:${FOOTER_EMAIL}` },
+  { icon: InstagramIcon, text: INSTAGRAM_HANDLE, href: INSTAGRAM_URL },
 ];
 
 export default function Footer() {

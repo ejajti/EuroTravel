@@ -13,8 +13,7 @@ const NAV_LINKS = [
   { label: "Kontakt", to: "/kontakt" },
 ];
 
-const DESTINATIONS = [...destinations]
-  .sort((a, b) => UNAVAILABLE_DESTINATIONS.includes(a.slug) - UNAVAILABLE_DESTINATIONS.includes(b.slug))
+const DESTINATIONS = destinations
   .map((d) => ({ label: d.name, to: `/destinacije/${d.slug}`, unavailable: UNAVAILABLE_DESTINATIONS.includes(d.slug) }));
 
 const dropdownVariants = {
@@ -135,6 +134,7 @@ function DestinationsDropdown() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileDestOpen, setMobileDestOpen] = useState(false);
 
   useEffect(() => {
     function onScroll() {
@@ -209,38 +209,74 @@ export default function Navbar() {
             <nav className="flex flex-col gap-1 flex-1">
               {NAV_LINKS.map((link) => (
                 <div key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    end={link.to === "/"}
-                    onClick={() => setMobileOpen(false)}
-                    className={({ isActive }) =>
-                      [
-                        "block py-3.5 text-lg font-medium border-b border-white/10 transition-colors duration-150",
-                        isActive ? "text-gold" : "text-white/80",
-                      ].join(" ")
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
+                  {link.dropdown ? (
+                    <button
+                      onClick={() => setMobileDestOpen((v) => !v)}
+                      className="w-full flex items-center justify-between py-3.5 text-lg font-medium border-b border-white/10 text-white/80 transition-colors duration-150"
+                    >
+                      {link.label}
+                      <motion.svg
+                        animate={{ rotate: mobileDestOpen ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        width="14"
+                        height="14"
+                        viewBox="0 0 12 12"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M2 4l4 4 4-4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </motion.svg>
+                    </button>
+                  ) : (
+                    <NavLink
+                      to={link.to}
+                      end={link.to === "/"}
+                      onClick={() => setMobileOpen(false)}
+                      className={({ isActive }) =>
+                        [
+                          "block py-3.5 text-lg font-medium border-b border-white/10 transition-colors duration-150",
+                          isActive ? "text-gold" : "text-white/80",
+                        ].join(" ")
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  )}
 
                   {link.dropdown && (
-                    <div className="pl-4 flex flex-col">
-                      {DESTINATIONS.map((dest) => (
-                        <Link
-                          key={dest.to}
-                          to={dest.to}
-                          onClick={() => setMobileOpen(false)}
-                          className={`flex items-center justify-between py-2.5 text-base border-b border-white/5 transition-colors duration-150 ${dest.unavailable ? "text-white/30" : "text-white/60 hover:text-gold"}`}
+                    <AnimatePresence initial={false}>
+                      {mobileDestOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden pl-4 flex flex-col"
                         >
-                          {dest.label}
-                          {dest.unavailable && (
-                            <span className="text-[10px] font-medium text-orange-400 bg-orange-400/10 px-1.5 py-0.5 rounded-full ml-2 shrink-0">
-                              nedostupno
-                            </span>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
+                          {DESTINATIONS.map((dest) => (
+                            <Link
+                              key={dest.to}
+                              to={dest.to}
+                              onClick={() => { setMobileOpen(false); setMobileDestOpen(false); }}
+                              className={`flex items-center justify-between py-2.5 text-base border-b border-white/5 transition-colors duration-150 ${dest.unavailable ? "text-white/30" : "text-white/60 hover:text-gold"}`}
+                            >
+                              {dest.label}
+                              {dest.unavailable && (
+                                <span className="text-[10px] font-medium text-orange-400 bg-orange-400/10 px-1.5 py-0.5 rounded-full ml-2 shrink-0">
+                                  nedostupno
+                                </span>
+                              )}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                 </div>
               ))}

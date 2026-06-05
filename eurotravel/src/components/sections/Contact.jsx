@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MessageCircle, ExternalLink, CheckCircle2, Loader2 } from 'lucide-react';
+import { Phone, Mail, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react';
+import InstagramIcon from '../ui/InstagramIcon';
 import {
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
@@ -35,7 +36,7 @@ const SOCIAL_BUTTONS = [
     label: 'Instagram',
     href: INSTAGRAM_URL,
     bg: 'bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] hover:opacity-90',
-    icon: ExternalLink,
+    icon: InstagramIcon,
   },
 ];
 

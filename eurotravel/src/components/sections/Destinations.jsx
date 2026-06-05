@@ -105,15 +105,9 @@ export default function Destinations() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {[...destinations]
-            .sort((a, b) => {
-              const aUnavailable = UNAVAILABLE_DESTINATIONS.includes(a.slug);
-              const bUnavailable = UNAVAILABLE_DESTINATIONS.includes(b.slug);
-              return aUnavailable - bUnavailable;
-            })
-            .map((dest) => (
-              <DestinationCard key={dest.id} dest={dest} />
-            ))}
+          {destinations.map((dest) => (
+            <DestinationCard key={dest.id} dest={dest} />
+          ))}
         </motion.div>
 
         {/* Bottom CTA */}
