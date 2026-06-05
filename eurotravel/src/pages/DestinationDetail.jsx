@@ -1,6 +1,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, CheckCircle, MessageCircle, Star, ArrowRight, ArrowLeftRight, Bus, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, MapPin, CheckCircle, Star, ArrowRight, ArrowLeftRight, Bus, AlertTriangle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { destinations, UNAVAILABLE_DESTINATIONS } from '../data/destinations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import Badge from '../components/ui/Badge';
@@ -49,7 +50,7 @@ function RegionCard({ region, destName }) {
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"
         >
-          <MessageCircle size={13} />
+          <FaWhatsapp size={13} />
           WhatsApp
         </a>
         <a
@@ -253,7 +254,7 @@ export default function DestinationDetail() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95 text-white font-semibold py-3.5 rounded-xl transition-all duration-150 text-sm"
                   >
-                    <MessageCircle size={17} />
+                    <FaWhatsapp size={17} />
                     Rezervišite na WhatsApp
                   </a>
                   <p className="text-navy/35 text-xs text-center">

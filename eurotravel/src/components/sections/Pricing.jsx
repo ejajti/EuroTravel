@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircle, Check, Info } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Check, Info } from 'lucide-react';
 import { destinations } from '../../data/destinations';
 import Badge from '../ui/Badge';
 import { WA_BASE, VIBER_HREF } from '../../data/contact';
@@ -91,7 +92,7 @@ function PricingCard({ dest }) {
             onClick={(e) => e.stopPropagation()}
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-all duration-150 active:scale-95 bg-[#25D366] hover:bg-[#1ebe5d] text-white"
           >
-            <MessageCircle size={16} />
+            <FaWhatsapp size={16} />
             WhatsApp
           </a>
           <a

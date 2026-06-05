@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, Loader2 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import InstagramIcon from '../ui/InstagramIcon';
 import ViberIcon from '../ui/ViberIcon';
 import {
@@ -25,7 +26,7 @@ const SOCIAL_BUTTONS = [
     label: 'WhatsApp',
     href: WA_BASE,
     bg: 'bg-[#25D366] hover:bg-[#1ebe5d]',
-    icon: MessageCircle,
+    icon: FaWhatsapp,
   },
   {
     label: 'Viber',
@@ -333,7 +334,7 @@ export default function Contact() {
                         </>
                       ) : (
                         <>
-                          <MessageCircle size={17} />
+                          <FaWhatsapp size={17} />
                           WhatsApp
                         </>
                       )}
