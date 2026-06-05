@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion(Link);
 
 const BASE = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60';
 
@@ -31,8 +34,15 @@ export default function Button({
   };
 
   if (href) {
+    if (href.startsWith('/')) {
+      return (
+        <MotionLink to={href} className={classes} {...motionProps} {...props}>
+          {children}
+        </MotionLink>
+      );
+    }
     return (
-      <motion.a href={href} className={classes} {...motionProps} {...props}>
+      <motion.a href={href} className={classes} target="_blank" rel="noopener noreferrer" {...motionProps} {...props}>
         {children}
       </motion.a>
     );

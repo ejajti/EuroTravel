@@ -21,13 +21,14 @@ export default function Hero() {
         {/* ── Video background ── */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/videos/hero-van.mp4"
           autoPlay
           muted
           loop
           playsInline
           poster="/videos/hero-van-poster.jpg"
-        />
+        >
+          <source src="/videos/hero-van.mp4" type="video/mp4" />
+        </video>
 
         {/* Dark overlay — keeps text readable over any video frame */}
         <div className="absolute inset-0 bg-navy/70" />
