@@ -27,7 +27,7 @@ const STEPS = [
   {
     icon: CreditCard,
     title: 'Plaćanje',
-    body: 'Plaćanje je gotovinom ili na račun, po dogovoru. Moguće je platiti pre ili po završetku putovanja.',
+    body: 'Plaćanje je gotovinom ili na račun, po dogovoru.',
   },
   {
     icon: Smile,
@@ -46,13 +46,13 @@ const cardVariants = {
 
 export default function RentalPage() {
   usePageMeta(
-    'Najam kombija',
-    'Privatni najam kombi vozila sa vozačem. Fleksibilne rute, prevoz od vrata do vrata, iskusni vozači. Kontaktirajte nas za ponudu.',
+    'Najam kombija sa vozačem – Privatni prevoz',
+    'Privatni najam kombi vozila sa vozačem iz Beograda. Fleksibilne rute, prevoz od vrata do vrata, iskusni vozači. Kontaktirajte nas za ponudu.',
   );
 
   return (
     <main>
-      <VehicleRental />
+      <VehicleRental headingLevel="h1" />
 
       {/* Rental process */}
       <section className="bg-slate py-16 px-4 sm:px-6">

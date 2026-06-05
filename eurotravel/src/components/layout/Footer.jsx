@@ -5,7 +5,7 @@ import InstagramIcon from "../ui/InstagramIcon";
 import {
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
-  FOOTER_EMAIL,
+  CONTACT_EMAIL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
 } from "../../data/contact";
@@ -20,7 +20,7 @@ const NAV_LINKS = [
 
 const CONTACT = [
   { icon: Phone,         text: PHONE_PRIMARY,    href: PHONE_PRIMARY_HREF },
-  { icon: Mail,          text: FOOTER_EMAIL,     href: `mailto:${FOOTER_EMAIL}` },
+  { icon: Mail,          text: CONTACT_EMAIL,     href: `mailto:${CONTACT_EMAIL}` },
   { icon: InstagramIcon, text: INSTAGRAM_HANDLE, href: INSTAGRAM_URL },
 ];
 

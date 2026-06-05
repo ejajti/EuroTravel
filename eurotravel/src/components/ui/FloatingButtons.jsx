@@ -11,16 +11,14 @@ export default function FloatingButtons() {
         aria-label="Pozovite nas"
         className="relative w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-150"
       >
-        <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-40" />
-        <Phone size={26} className="text-white relative z-10" aria-hidden="true" />
+        <Phone size={26} className="text-white" aria-hidden="true" />
       </a>
       <a
         href={VIBER_HREF}
         aria-label="Kontaktirajte nas na Viber"
         className="relative w-14 h-14 rounded-full bg-[#7360F2] flex items-center justify-center shadow-lg hover:bg-[#6250e0] transition-colors duration-150"
       >
-        <span className="absolute inset-0 rounded-full bg-[#7360F2] animate-ping opacity-40" />
-        <ViberIcon size={26} className="text-white relative z-10" />
+        <ViberIcon size={26} className="text-white" />
       </a>
       <a
         href={WA_BASE}
@@ -29,8 +27,7 @@ export default function FloatingButtons() {
         aria-label="Kontaktirajte nas na WhatsApp"
         className="relative w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:bg-[#1ebe5d] transition-colors duration-150"
       >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-40" />
-        <FaWhatsapp size={26} className="text-white relative z-10" />
+        <FaWhatsapp size={26} className="text-white" />
       </a>
     </div>
   );

@@ -18,6 +18,14 @@ export default {
           DEFAULT: '#F4F6FA',
           dark: '#E8ECF4',
         },
+        whatsapp: {
+          DEFAULT: '#25D366',
+          dark: '#1ebe5d',
+        },
+        viber: {
+          DEFAULT: '#7360F2',
+          dark: '#6250e0',
+        },
       },
       fontFamily: {
         display: ['Playfair Display', 'serif'],

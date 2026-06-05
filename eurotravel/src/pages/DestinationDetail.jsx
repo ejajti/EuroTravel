@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, CheckCircle, Star, ArrowRight, ArrowLeftRight, Bus, AlertTriangle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -8,11 +9,12 @@ import Badge from '../components/ui/Badge';
 import { WA_BASE, VIBER_HREF } from '../data/contact';
 import ViberIcon from '../components/ui/ViberIcon';
 
-function RegionCard({ region, destName }) {
-  const msg = `Zdravo! Zanima me prevoz do ${destName} - ${region.name}. Možete li mi poslati ponudu?`;
+function RegionCard({ region, destName, destNameGenitive }) {
+  const nameGen = destNameGenitive ?? destName;
+  const msg = `Zdravo! Zanima me prevoz do ${nameGen} - ${region.name}. Možete li mi poslati ponudu?`;
   return (
     <div
-      className="bg-white rounded-2xl border border-slate-dark border-l-4 border-l-gold flex flex-col gap-4 p-5"
+      className="bg-white rounded-2xl border-t border-r border-b border-slate-dark border-l-4 border-l-gold flex flex-col gap-4 p-5"
       style={{ boxShadow: 'var(--shadow-card)' }}
     >
       <h3 className="font-display font-bold text-navy text-base leading-tight">{region.name}</h3>
@@ -80,17 +82,61 @@ export default function DestinationDetail() {
   const { slug } = useParams();
   const dest = destinations.find((d) => d.slug === slug);
 
+  const gen = dest?.nameGenitive ?? dest?.name;
   usePageMeta(
-    dest ? dest.name : null,
+    dest ? `Kombi prevoz do ${gen} od ${dest.priceFrom}€` : null,
     dest
-      ? `Kombi prevoz do ${dest.name} od ${dest.priceFrom}€. Gradovi: ${dest.cities.join(', ')}. Prevoz od vrata do vrata.`
+      ? `Kombi prevoz iz Beograda do ${gen} od ${dest.priceFrom}€. ${dest.cities.join(', ')}. Svakodnevni polasci, prevoz od vrata do vrata.`
       : null,
   );
+
+  useEffect(() => {
+    if (!dest) return;
+
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Početna', item: 'https://eurotravel.rs/' },
+        { '@type': 'ListItem', position: 2, name: 'Destinacije', item: 'https://eurotravel.rs/destinacije' },
+        { '@type': 'ListItem', position: 3, name: dest.name, item: `https://eurotravel.rs/destinacije/${dest.slug}` },
+      ],
+    };
+
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `Kombi prevoz do ${dest.name}`,
+      provider: { '@type': 'TravelAgency', name: 'Euro Travel', url: 'https://eurotravel.rs' },
+      areaServed: dest.country,
+      offers: { '@type': 'Offer', price: String(dest.priceFrom), priceCurrency: 'EUR' },
+    };
+
+    ['ld-breadcrumb', 'ld-service'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    });
+
+    [['ld-breadcrumb', breadcrumbSchema], ['ld-service', serviceSchema]].forEach(([id, schema]) => {
+      const el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.id = id;
+      el.textContent = JSON.stringify(schema);
+      document.head.appendChild(el);
+    });
+
+    return () => {
+      ['ld-breadcrumb', 'ld-service'].forEach((id) => {
+        document.getElementById(id)?.remove();
+      });
+    };
+  }, [dest]);
 
   if (!dest) return <Navigate to="/destinacije" replace />;
 
   const unavailable = UNAVAILABLE_DESTINATIONS.includes(dest.slug);
-  const waText = `Zdravo! Zanima me prevoz do ${dest.name}. Možete li mi poslati ponudu?`;
+  const nameGen = dest.nameGenitive ?? dest.name;
+  const waText = `Zdravo! Zanima me prevoz do ${nameGen}. Možete li mi poslati ponudu?`;
 
   return (
     <main>
@@ -98,8 +144,13 @@ export default function DestinationDetail() {
       <section className="relative h-72 sm:h-96 overflow-hidden">
         <img
           src={dest.image}
-          alt={dest.name}
+          alt={`${nameGen} – kombi prevoz iz Beograda`}
           className="w-full h-full object-cover"
+          width={1280}
+          height={384}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
 
@@ -120,7 +171,7 @@ export default function DestinationDetail() {
             <div>
               {dest.popular && <div className="mb-2"><Badge color="gold">Najpopularnije</Badge></div>}
               <h1 className="font-display text-white font-bold text-4xl sm:text-5xl leading-tight">
-                {dest.name}
+                Kombi prevoz do {nameGen}
               </h1>
             </div>
             <div className="text-right shrink-0">
@@ -133,6 +184,19 @@ export default function DestinationDetail() {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-slate-200 px-4 sm:px-8 py-3">
+        <div className="max-w-5xl mx-auto">
+          <ol className="flex items-center gap-1.5 text-sm text-navy/50">
+            <li><Link to="/" className="hover:text-gold transition-colors duration-150">Početna</Link></li>
+            <li aria-hidden="true" className="select-none">›</li>
+            <li><Link to="/destinacije" className="hover:text-gold transition-colors duration-150">Destinacije</Link></li>
+            <li aria-hidden="true" className="select-none">›</li>
+            <li className="text-navy font-medium" aria-current="page">{dest.name}</li>
+          </ol>
+        </div>
+      </nav>
 
       {/* Unavailability banner */}
       {unavailable && (
@@ -174,7 +238,7 @@ export default function DestinationDetail() {
                 <h2 className="font-display text-navy font-bold text-2xl">Regije i gradovi</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {dest.regions.map((region) => (
-                    <RegionCard key={region.name} region={region} destName={dest.name} />
+                    <RegionCard key={region.name} region={region} destName={dest.name} destNameGenitive={dest.nameGenitive} />
                   ))}
                 </div>
               </motion.div>
@@ -193,7 +257,7 @@ export default function DestinationDetail() {
                   <p className="text-navy/70 text-base leading-relaxed">{dest.description}</p>
                 </div>
                 <div>
-                  <h2 className="font-display text-navy font-bold text-2xl mb-4">Highlights</h2>
+                  <h2 className="font-display text-navy font-bold text-2xl mb-4">Istaknuto</h2>
                   <ul className="flex flex-col gap-3">
                     {dest.highlights.map((h) => (
                       <li key={h} className="flex items-center gap-3">

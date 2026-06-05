@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const MotionLink = motion(Link);
 
-const BASE = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60';
+const BASE = 'inline-flex items-center justify-center font-medium rounded-xl transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60';
 
 const VARIANTS = {
   primary: 'bg-gold text-navy hover:bg-gold-dark active:bg-gold-dark',

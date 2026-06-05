@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { testimonials } from '../../data/testimonials';
@@ -30,20 +30,25 @@ export default function Testimonials() {
   const [paused, setPaused]   = useState(false);
   const timerRef              = useRef(null);
 
-  const go = useCallback((next, dir) => {
-    setDir(dir);
-    setIndex((next + testimonials.length) % testimonials.length);
-  }, []);
+  const prev = () => {
+    setDir(-1);
+    setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
+  };
 
-  const prev = () => go(index - 1, -1);
-  const next = useCallback(() => go(index + 1, 1), [go, index]);
+  const next = () => {
+    setDir(1);
+    setIndex((i) => (i + 1) % testimonials.length);
+  };
 
   // Auto-advance
   useEffect(() => {
     if (paused) return;
-    timerRef.current = setTimeout(next, SLIDE_INTERVAL);
+    timerRef.current = setTimeout(() => {
+      setDir(1);
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, SLIDE_INTERVAL);
     return () => clearTimeout(timerRef.current);
-  }, [index, paused, next]);
+  }, [index, paused]);
 
   const t = testimonials[index];
 
@@ -90,7 +95,7 @@ export default function Testimonials() {
                 className="w-full"
               >
                 <div
-                  className="bg-white/5 border border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col gap-5"
+                  className="bg-white/5 border border-white/10 rounded-2xl px-14 py-8 sm:px-10 sm:py-10 flex flex-col gap-5"
                   style={{ backdropFilter: 'blur(10px)' }}
                 >
                   {/* Quote icon */}

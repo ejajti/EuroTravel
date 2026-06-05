@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Button from '../ui/Button';
@@ -12,22 +13,61 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
+// Match Tailwind's md breakpoint (768px)
+const MOBILE_MQ = '(max-width: 767px)';
+
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_MQ).matches,
+  );
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_MQ);
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  // Pause/play when viewport size crosses the breakpoint at runtime
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isMobile) {
+      video.pause();
+    } else {
+      video.play().catch(() => {/* autoplay may be blocked — ignore */});
+    }
+  }, [isMobile]);
+
   return (
     <>
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-24 overflow-hidden">
 
-        {/* ── Video background ── */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/videos/hero-van-poster.jpg"
-        >
-          <source src="/videos/hero-van.mp4" type="video/mp4" />
-        </video>
+        {/* ── Video background (desktop only) / Poster image (mobile) ── */}
+        {isMobile ? (
+          <img
+            src="/videos/hero-van-poster.jpg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            fetchpriority="high"
+            decoding="async"
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="/videos/hero-van-poster.jpg"
+          >
+            <source src="/videos/hero-van.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Dark overlay — keeps text readable over any video frame */}
         <div className="absolute inset-0 bg-navy/70" />
@@ -66,8 +106,8 @@ export default function Hero() {
               className="font-display text-white font-bold leading-tight drop-shadow-lg"
               style={{ fontSize: 'clamp(2.1rem, 5.5vw, 3.6rem)' }}
             >
-              Putujte udobno,{' '}
-              <span className="text-gold">stignite na vreme</span>
+              Kombi prevoz iz Beograda —{' '}
+              <span className="text-gold">Hrvatska, Grčka, Italija i više</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -76,7 +116,7 @@ export default function Hero() {
               className="text-white/80 text-base sm:text-lg max-w-xl leading-relaxed"
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
             >
-              Prevoz od vrata do vrata kombi vozilima novije generacije
+              Putujte udobno, stignite na vreme. Prevoz od vrata do vrata sa iskusnim vozačima i udobnim vozilima.
             </motion.p>
 
             {/* CTAs */}

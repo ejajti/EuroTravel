@@ -6,21 +6,14 @@ import { destinations } from '../../data/destinations';
 import Badge from '../ui/Badge';
 import { WA_BASE, VIBER_HREF } from '../../data/contact';
 import ViberIcon from '../ui/ViberIcon';
+import { cardVariants, staggerContainer } from '../../lib/motion';
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
-};
-
-const cardVariants = {
-  hidden:  { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.48, ease: 'easeOut' } },
-};
+const containerVariants = staggerContainer(0.09);
 
 function PricingCard({ dest }) {
-  const isPopular = dest.slug === 'hrvatska' || dest.slug === 'grcka';
+  const isPopular = !!dest.popular;
 
-  const waText = `Zdravo! Zanima me cena prevoza do ${dest.name}. Možete li mi poslati ponudu?`;
+  const waText = `Zdravo! Zanima me cena prevoza do ${dest.nameGenitive ?? dest.name}. Možete li mi poslati ponudu?`;
 
   return (
     <Link to={`/destinacije/${dest.slug}`} className="block h-full">
@@ -48,9 +41,9 @@ function PricingCard({ dest }) {
         <div className="flex items-center gap-3">
           <span className="sm:hidden text-3xl leading-none">{dest.flag}</span>
           <div>
-            <h3 className="font-display font-bold text-navy text-lg leading-tight">
+            <h2 className="font-display font-bold text-navy text-lg leading-tight">
               {dest.name}
-            </h3>
+            </h2>
             <p className="text-navy/50 text-xs mt-0.5 line-clamp-2">{dest.cities.join(' · ')}</p>
           </div>
         </div>
@@ -110,7 +103,8 @@ function PricingCard({ dest }) {
   );
 }
 
-export default function Pricing() {
+export default function Pricing({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   return (
     <section className="bg-slate py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
@@ -126,12 +120,12 @@ export default function Pricing() {
           <span className="text-gold text-xs font-semibold uppercase tracking-[0.2em]">
             Transparentne cene
           </span>
-          <h2
+          <Heading
             className="font-display text-navy font-bold mt-3 mb-4"
             style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
           >
-            Cene prevoza
-          </h2>
+            Cene kombi prevoza iz Beograda
+          </Heading>
           <div className="mx-auto w-16 h-1 rounded-full bg-gold" />
         </motion.div>
 

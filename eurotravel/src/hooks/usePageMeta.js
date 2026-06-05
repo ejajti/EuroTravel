@@ -1,4 +1,7 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+const BASE_URL = 'https://eurotravel.rs';
 
 function setMetaByName(name, content) {
   let el = document.querySelector(`meta[name="${name}"]`);
@@ -20,11 +23,23 @@ function setMetaByProperty(property, content) {
   el.content = content;
 }
 
+function setCanonical(href) {
+  let el = document.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.rel = 'canonical';
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
 export function usePageMeta(title, description) {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const fullTitle = title
       ? `${title} | Euro Travel`
-      : 'Euro Travel – Kombi prevoz putnika';
+      : 'Euro Travel – Kombi prevoz iz Beograda u Evropu';
 
     document.title = fullTitle;
 
@@ -36,5 +51,9 @@ export function usePageMeta(title, description) {
 
     setMetaByProperty('og:title', fullTitle);
     setMetaByName('twitter:title', fullTitle);
-  }, [title, description]);
+
+    const canonicalUrl = `${BASE_URL}${pathname}`;
+    setCanonical(canonicalUrl);
+    setMetaByProperty('og:url', canonicalUrl);
+  }, [title, description, pathname]);
 }

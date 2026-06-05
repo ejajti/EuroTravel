@@ -60,7 +60,8 @@ function FieldError({ msg }) {
   );
 }
 
-export default function Contact() {
+export default function Contact({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   const [form, setForm]             = useState({ name: '', email: '', phone: '', message: '' });
   const [errors, setErrors]         = useState({});
   const [loadingChannel, setLoadingChannel] = useState(null);
@@ -127,7 +128,7 @@ export default function Contact() {
   ].join(' ');
 
   return (
-    <section id="kontakt" className="bg-slate py-20 px-4 sm:px-6">
+    <section id="kontakt" className="bg-slate py-20 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -141,12 +142,12 @@ export default function Contact() {
           <span className="text-gold text-xs font-semibold uppercase tracking-[0.2em]">
             Budite u kontaktu
           </span>
-          <h2
+          <Heading
             className="font-display text-navy font-bold mt-3 mb-4"
             style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
           >
             Kontaktirajte nas
-          </h2>
+          </Heading>
           <div className="mx-auto w-16 h-1 rounded-full bg-gold" />
         </motion.div>
 
@@ -251,16 +252,22 @@ export default function Contact() {
                   className="bg-white rounded-2xl p-8 sm:p-10 flex flex-col gap-5"
                   style={{ boxShadow: 'var(--shadow-card)' }}
                 >
-                  <h3 className="font-display text-navy font-bold text-xl">
-                    Pošaljite upit
-                  </h3>
+                  <div>
+                    <h3 className="font-display text-navy font-bold text-xl">
+                      Pošaljite upit
+                    </h3>
+                    <p className="text-navy/55 text-sm mt-1.5 leading-snug">
+                      Popunite formu i poruka će se otvoriti direktno u WhatsApp-u ili Viberu.
+                    </p>
+                  </div>
 
                   {/* Name */}
                   <div>
-                    <label className="block text-sm font-medium text-navy/70 mb-1.5">
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-navy/70 mb-1.5">
                       Ime i prezime <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       value={form.name}
@@ -274,10 +281,11 @@ export default function Contact() {
                   {/* Email + Phone — side by side on sm+ */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-navy/70 mb-1.5">
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-navy/70 mb-1.5">
                         Email <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         name="email"
                         value={form.email}
@@ -288,10 +296,11 @@ export default function Contact() {
                       <FieldError msg={errors.email} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-navy/70 mb-1.5">
+                      <label htmlFor="contact-phone" className="block text-sm font-medium text-navy/70 mb-1.5">
                         Telefon
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         name="phone"
                         value={form.phone}
@@ -304,10 +313,11 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-medium text-navy/70 mb-1.5">
+                    <label htmlFor="contact-message" className="block text-sm font-medium text-navy/70 mb-1.5">
                       Poruka <span className="text-red-500">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       rows={4}
                       value={form.message}

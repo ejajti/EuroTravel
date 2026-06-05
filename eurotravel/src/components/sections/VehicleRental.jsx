@@ -28,9 +28,10 @@ const fadeRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: 'easeOut', delay: 0.12 } },
 };
 
-export default function VehicleRental() {
+export default function VehicleRental({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   return (
-    <section id="najam" className="bg-white py-12 sm:py-20 px-4 sm:px-6">
+    <section id="najam" className="bg-white py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading — centered above columns */}
@@ -44,12 +45,12 @@ export default function VehicleRental() {
           <span className="text-gold text-xs font-semibold uppercase tracking-[0.2em]">
             Privatni prevoz
           </span>
-          <h2
+          <Heading
             className="font-display text-navy font-bold mt-3 mb-4"
             style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
           >
             Najam kombija sa vozačem
-          </h2>
+          </Heading>
           <div className="mx-auto w-16 h-1 rounded-full bg-gold" />
         </motion.div>
 
@@ -84,11 +85,7 @@ export default function VehicleRental() {
               <Button
                 variant="primary"
                 size="lg"
-                href="#kontakt"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                href="/kontakt"
               >
                 Zatražite ponudu
               </Button>

@@ -12,8 +12,7 @@
 @layer base {
   body {
     font-family: 'DM Sans', sans-serif;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
+-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }

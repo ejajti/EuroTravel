@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { FaWhatsapp, FaViber, FaPhone } from "react-icons/fa";
 import logoImg from "../../assets/images/logo.png";
 import { destinations, UNAVAILABLE_DESTINATIONS } from "../../data/destinations";
+import { WA_BASE, VIBER_HREF, PHONE_PRIMARY_HREF } from "../../data/contact";
 
 const NAV_LINKS = [
   { label: "Početna", to: "/" },
@@ -161,8 +163,8 @@ export default function Navbar() {
         ].join(" ")}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 relative flex items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
+          {/* Logo — link height clamped to navbar; image visually overflows upward */}
+          <Link to="/" className="flex items-center shrink-0 h-16 overflow-hidden">
             <img src={logoImg} alt="Euro Travel logo" className="h-40 w-auto" />
           </Link>
 
@@ -206,6 +208,15 @@ export default function Navbar() {
             exit="exit"
             className="fixed inset-0 z-[60] bg-[#0B1C3D] flex flex-col pt-20 pb-8 px-6 md:hidden"
           >
+            {/* Close button inside overlay — always reachable above the overlay itself */}
+            <button
+              className="absolute top-4 right-4 text-white p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center z-[61]"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Zatvori meni"
+            >
+              <X size={24} />
+            </button>
+
             <nav className="flex flex-col gap-1 flex-1">
               {NAV_LINKS.map((link) => (
                 <div key={link.to}>
@@ -282,6 +293,39 @@ export default function Navbar() {
               ))}
             </nav>
 
+            {/* Mobile CTA — bottom of menu */}
+            <div className="flex flex-col gap-3 mt-4 shrink-0">
+              <a
+                href={WA_BASE}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95 text-white font-bold py-4 rounded-2xl transition-all duration-150 text-base"
+              >
+                <FaWhatsapp size={20} />
+                Pišite nam na WhatsApp
+              </a>
+              <div className="flex gap-3">
+                <a
+                  href={VIBER_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-bold py-3.5 rounded-2xl transition-all duration-150 text-base"
+                >
+                  <FaViber size={20} />
+                  Viber
+                </a>
+                <a
+                  href={PHONE_PRIMARY_HREF}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 active:scale-95 text-white font-bold py-3.5 rounded-2xl transition-all duration-150 text-base"
+                >
+                  <FaPhone size={18} />
+                  Pozovite nas
+                </a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

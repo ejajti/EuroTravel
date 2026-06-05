@@ -4,13 +4,13 @@ import Contact from '../components/sections/Contact';
 
 export default function ContactPage() {
   usePageMeta(
-    'Kontakt',
-    'Kontaktirajte Euro Travel za rezervacije i upite. Telefon, WhatsApp, Viber i email. Dostupni svaki dan.',
+    'Kontakt – Euro Travel Beograd',
+    'Kontaktirajte Euro Travel Beograd za rezervaciju kombi prevoza. Telefon, WhatsApp, Viber. Dostupni svaki dan, hitni upiti 24/7.',
   );
 
   return (
     <main>
-      <Contact />
+      <Contact headingLevel="h1" />
 
       {/* Google Maps */}
       <section className="bg-white px-4 sm:px-6 pb-16">

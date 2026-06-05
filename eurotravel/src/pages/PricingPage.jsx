@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -64,9 +64,27 @@ function FaqItem({ item, open, onToggle }) {
 
 export default function PricingPage() {
   usePageMeta(
-    'Cene prevoza',
-    'Cene kombi prevoza iz Srbije u Evropu — Hrvatska, Grčka, Slovenija, Italija i više. Prevoz od vrata do vrata.',
+    'Cene kombi prevoza iz Beograda u Evropu',
+    'Cene kombi prevoza iz Beograda u Evropu. Hrvatska od 60€, Grčka od 75€, Makedonija od 65€. Transparentne cene, bez skrivenih troškova.',
   );
+
+  useEffect(() => {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      })),
+    };
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'ld-faq';
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+    return () => document.getElementById('ld-faq')?.remove();
+  }, []);
 
   const [openIdx, setOpenIdx] = useState(null);
 
@@ -76,7 +94,7 @@ export default function PricingPage() {
 
   return (
     <main>
-      <Pricing />
+      <Pricing headingLevel="h1" />
 
       {/* FAQ */}
       <section className="bg-white py-16 px-4 sm:px-6">
