@@ -6,7 +6,7 @@ import hendrikImg    from '../assets/images/hendrik-morkel-002kiku-xOM-unsplash.
 import damianoImg    from '../assets/images/damiano-baschiera-hFXZ5cNfkOk-unsplash.jpg';
 import dimitrijeImg  from '../assets/images/dimitrije-milenkovic-Wa9gkmHOTf8-unsplash.jpg';
 
-export const UNAVAILABLE_DESTINATIONS = ['italija', 'slovenija', 'bih'];
+export const UNAVAILABLE_DESTINATIONS = ['slovenija', 'bih'];
 
 export const destinations = [
   {
