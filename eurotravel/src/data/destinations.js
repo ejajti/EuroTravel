@@ -174,14 +174,23 @@ export const destinations = [
     name: 'Italija',
     country: 'Italija',
     flag: '🇮🇹',
-    cities: ['Trst', 'Venecija'],
-    priceFrom: 75,
+    cities: ['Trst'],
+    priceFrom: 85,
     currency: 'EUR',
     description:
-      'Italija je zemlja umetnosti, mode, gastonomije i nezaboravnih pejzaža. Venecija i Trst su idealne polazne tačke za istraživanje severne Italije.',
-    highlights: ['Venecija', 'Italijanska kuhinja', 'Moda i dizajn'],
+      'Italija je zemlja umetnosti, mode, gastronomije i nezaboravnih pejzaža. Trst je kosmopolitski lučki grad na Jadranskom moru koji spaja italijansku, austrijsku i slovenačku kulturu. Naš kombi prevoz obezbeđuje udoban prevoz od vrata do vrata uz iskusne vozače i klimatizovana vozila.',
+    highlights: ['Trst — luka na Jadranu', 'Italijanska gastronomija', 'Moda i dizajn'],
     image: damianoImg,
     popular: false,
+    regions: [
+      {
+        name: 'Trst',
+        cities: ['Trst'],
+        oneWay: 85,
+        roundTrip: 160,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
   },
   {
     id: 7,
