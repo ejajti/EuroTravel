@@ -14,12 +14,6 @@ export const WA_BASE   = `https://wa.me/${WA_NUMBER}`;
 
 export const VIBER_HREF = 'viber://chat?number=%2B381693539444';
 
-export const VIBER_GENERIC_MSG = 'Zdravo! Zanima me vaša usluga prevoza. Možete li mi poslati ponudu?';
-
-export function viberLink(text) {
-  return `${VIBER_HREF}&text=${encodeURIComponent(text)}`;
-}
-
 // ⚠ Two different emails are used across the codebase — verify which is correct.
 export const CONTACT_EMAIL = 'office@eurotravel.rs'; // used in Contact section
 export const FOOTER_EMAIL  = 'info@eurotravel.rs';   // used in Footer

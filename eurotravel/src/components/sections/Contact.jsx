@@ -8,9 +8,8 @@ import {
   PHONE_SECONDARY_HREF,
   CONTACT_EMAIL,
   WA_BASE,
+  VIBER_HREF,
   INSTAGRAM_URL,
-  viberLink,
-  VIBER_GENERIC_MSG,
 } from '../../data/contact';
 
 const CONTACT_ITEMS = [
@@ -28,7 +27,7 @@ const SOCIAL_BUTTONS = [
   },
   {
     label: 'Viber',
-    href: viberLink(VIBER_GENERIC_MSG),
+    href: VIBER_HREF,
     bg: 'bg-[#7360F2] hover:bg-[#6250e0]',
     icon: MessageCircle,
   },
@@ -105,7 +104,7 @@ export default function Contact() {
         );
       } else {
         window.open(
-          viberLink(text),
+          VIBER_HREF,
           '_blank',
           'noopener,noreferrer',
         );

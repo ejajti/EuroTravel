@@ -52,7 +52,7 @@ function RegionCard({ region, destName }) {
           WhatsApp
         </a>
         <a
-          href={`${VIBER_HREF}&text=${encodeURIComponent(msg)}`}
+          href={VIBER_HREF}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-1.5 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"

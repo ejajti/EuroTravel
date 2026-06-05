@@ -1,5 +1,5 @@
 import { MessageCircle, Phone } from 'lucide-react';
-import { PHONE_PRIMARY_HREF, WA_BASE, viberLink, VIBER_GENERIC_MSG } from '../../data/contact';
+import { PHONE_PRIMARY_HREF, WA_BASE, VIBER_HREF } from '../../data/contact';
 
 export default function FloatingButtons() {
   return (
@@ -13,7 +13,7 @@ export default function FloatingButtons() {
         <Phone size={26} className="text-white relative z-10" />
       </a>
       <a
-        href={viberLink(VIBER_GENERIC_MSG)}
+        href={VIBER_HREF}
         aria-label="Kontaktirajte nas na Viber"
         className="relative w-14 h-14 rounded-full bg-[#7360F2] flex items-center justify-center shadow-lg hover:bg-[#6250e0] transition-colors duration-150"
       >
