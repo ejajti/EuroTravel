@@ -48,7 +48,7 @@ function PricingCard({ dest }) {
             <h3 className="font-display font-bold text-navy text-lg leading-tight">
               {dest.name}
             </h3>
-            <p className="text-navy/50 text-xs mt-0.5">{dest.cities.join(' · ')}</p>
+            <p className="text-navy/50 text-xs mt-0.5 line-clamp-2">{dest.cities.join(' · ')}</p>
           </div>
         </div>
 

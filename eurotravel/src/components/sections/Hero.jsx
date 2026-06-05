@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Button from '../ui/Button';
-import FloatingButtons from '../ui/FloatingButtons';
 
 const container = {
   hidden: {},
@@ -118,7 +117,6 @@ export default function Hero() {
         </motion.div>
       </section>
 
-      <FloatingButtons />
     </>
   );
 }

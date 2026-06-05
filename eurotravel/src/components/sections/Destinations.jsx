@@ -30,6 +30,8 @@ function DestinationCard({ dest }) {
           <img
             src={dest.image}
             alt={dest.name}
+            width={400}
+            height={192}
             className={`w-full h-full object-cover ${unavailable ? 'grayscale' : 'transition-transform duration-500 group-hover:scale-110'}`}
             loading="lazy"
           />
@@ -123,7 +125,7 @@ export default function Destinations() {
         >
           <Link
             to="/destinacije"
-            className="inline-flex items-center gap-2 text-gold font-semibold text-base hover:gap-3 transition-all duration-150 group"
+            className="inline-flex items-center gap-2 text-gold font-semibold text-base hover:gap-3 transition-all duration-150 group py-3 px-2"
           >
             Sve destinacije
             <ArrowRight size={18} className="transition-transform duration-150 group-hover:translate-x-1" />

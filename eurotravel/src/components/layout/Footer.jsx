@@ -31,7 +31,7 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Euro Travel logo"
-                className="h-40 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/55 max-w-xs">
@@ -50,7 +50,7 @@ export default function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-white/55 hover:text-gold transition-colors duration-150"
+                    className="block py-3 text-sm text-white/55 hover:text-gold transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="flex items-center gap-2.5 text-sm text-white/55 hover:text-gold transition-colors duration-150"
+                    className="flex items-center gap-2.5 py-2.5 text-sm text-white/55 hover:text-gold transition-colors duration-150"
                   >
                     <Icon size={15} className="text-gold shrink-0" />
                     {text}

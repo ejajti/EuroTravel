@@ -127,14 +127,14 @@ export default function Testimonials() {
           <button
             onClick={prev}
             aria-label="Prethodna recenzija"
-            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors duration-150"
+            className="absolute left-1 sm:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors duration-150"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={next}
             aria-label="Sledeća recenzija"
-            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors duration-150"
+            className="absolute right-1 sm:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors duration-150"
           >
             <ChevronRight size={20} />
           </button>
@@ -148,10 +148,10 @@ export default function Testimonials() {
               aria-label={`Recenzija ${i + 1}`}
               onClick={() => { setDir(i > index ? 1 : -1); setIndex(i); }}
               className={[
-                'rounded-full transition-all duration-200',
+                'rounded-full transition-all duration-200 py-4 px-2',
                 i === index
-                  ? 'w-6 h-2 bg-gold'
-                  : 'w-2 h-2 bg-white/25 hover:bg-white/50',
+                  ? 'w-6 bg-gold'
+                  : 'w-2 bg-white/25 hover:bg-white/50',
               ].join(' ')}
             />
           ))}

@@ -30,7 +30,7 @@ const fadeRight = {
 
 export default function VehicleRental() {
   return (
-    <section id="najam" className="bg-white py-20 px-4 sm:px-6">
+    <section id="najam" className="bg-white py-12 sm:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading — centered above columns */}

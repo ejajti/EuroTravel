@@ -49,7 +49,7 @@ function RegionCard({ region, destName }) {
           href={`${WA_BASE}?text=${encodeURIComponent(msg)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95 text-white font-semibold py-2 rounded-lg transition-all duration-150 text-xs"
+          className="flex-1 flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"
         >
           <MessageCircle size={13} />
           WhatsApp
@@ -58,7 +58,7 @@ function RegionCard({ region, destName }) {
           href={`${VIBER_BASE}&text=${encodeURIComponent(msg)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-1.5 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-semibold py-2 rounded-lg transition-all duration-150 text-xs"
+          className="flex-1 flex items-center justify-center gap-1.5 bg-[#7360f2] hover:bg-[#6150e0] active:scale-95 text-white font-semibold py-3 rounded-lg transition-all duration-150 text-sm"
         >
           <MessageCircle size={13} />
           Viber
@@ -108,7 +108,7 @@ export default function DestinationDetail() {
         <div className="absolute top-6 left-4 sm:left-8 z-10">
           <Link
             to="/destinacije"
-            className="inline-flex items-center gap-1.5 text-white/80 hover:text-white text-sm font-medium transition-colors duration-150 bg-navy/40 backdrop-blur-sm px-3 py-1.5 rounded-full"
+            className="inline-flex items-center gap-1.5 text-white/80 hover:text-white text-sm font-medium transition-colors duration-150 bg-navy/40 backdrop-blur-sm px-3 py-2.5 rounded-full active:bg-navy/60"
           >
             <ArrowLeft size={15} />
             Sve destinacije

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-
 import { useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import FloatingButtons from './components/ui/FloatingButtons';
 
 const Home             = lazy(() => import('./pages/Home'));
 const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
@@ -39,6 +40,7 @@ function Layout() {
         <Outlet />
       </Suspense>
       <Footer />
+      <FloatingButtons />
     </>
   );
 }

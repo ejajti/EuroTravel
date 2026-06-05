@@ -163,7 +163,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 relative flex items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0">
-            <img src={logoImg} alt="Euro Travel logo" className="h-40 w-auto" />
+            <img src={logoImg} alt="Euro Travel logo" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop nav — truly centered against full navbar width */}
@@ -186,11 +186,11 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden ml-auto text-white p-1 -mr-1"
+            className="md:hidden ml-auto text-white p-2.5 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Zatvori meni" : "Otvori meni"}
           >
-            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
@@ -204,7 +204,7 @@ export default function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 z-40 bg-[#0B1C3D] flex flex-col pt-20 pb-8 px-6 md:hidden"
+            className="fixed inset-0 z-[60] bg-[#0B1C3D] flex flex-col pt-20 pb-8 px-6 md:hidden"
           >
             <nav className="flex flex-col gap-1 flex-1">
               {NAV_LINKS.map((link) => (

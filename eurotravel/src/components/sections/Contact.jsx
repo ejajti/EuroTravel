@@ -180,7 +180,7 @@ export default function Contact() {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`flex items-center gap-2 ${bg} text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-all duration-150 active:scale-95`}
+                  className={`flex items-center gap-2 ${bg} text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-150 active:scale-95`}
                 >
                   <Icon size={16} />
                   {label}
@@ -352,7 +352,7 @@ export default function Contact() {
                     </motion.button>
                   </div>
 
-                  <p className="text-navy/35 text-xs text-center">
+                  <p className="text-navy/60 text-xs text-center">
                     Izaberite aplikaciju — otvoriće se chat sa vašim podacima.
                   </p>
                 </motion.form>
