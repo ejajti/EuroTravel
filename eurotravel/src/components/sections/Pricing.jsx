@@ -42,7 +42,7 @@ function PricingCard({ dest }) {
       <div className="p-6 flex flex-col flex-1 gap-4">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <span className="text-3xl leading-none">{dest.flag}</span>
+          <span className="sm:hidden text-3xl leading-none">{dest.flag}</span>
           <div>
             <h3 className="font-display font-bold text-navy text-lg leading-tight">
               {dest.name}
