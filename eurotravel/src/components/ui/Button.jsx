@@ -41,6 +41,13 @@ export default function Button({
         </MotionLink>
       );
     }
+    if (href.startsWith('#')) {
+      return (
+        <motion.a href={href} className={classes} {...motionProps} {...props}>
+          {children}
+        </motion.a>
+      );
+    }
     return (
       <motion.a href={href} className={classes} target="_blank" rel="noopener noreferrer" {...motionProps} {...props}>
         {children}
