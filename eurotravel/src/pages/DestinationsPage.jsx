@@ -46,7 +46,10 @@ function DestCard({ dest }) {
 
         <div className="flex flex-col flex-1 p-5 gap-3">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-display font-bold text-navy text-lg leading-tight">{dest.name}</h3>
+            <h3 className="font-display font-bold text-navy text-lg leading-tight flex items-center gap-2">
+                <span className="sm:hidden text-2xl leading-none">{dest.flag}</span>
+                {dest.name}
+              </h3>
             <span className={`font-bold text-base whitespace-nowrap ${unavailable ? 'text-navy/30' : 'text-gold'}`}>
               od {dest.priceFrom}€
             </span>
