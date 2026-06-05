@@ -9,7 +9,7 @@ import dimitrijeImg  from '../assets/images/dimitrije-milenkovic-Wa9gkmHOTf8-uns
 export const UNAVAILABLE_DESTINATIONS = ['slovenija', 'bih'];
 
 // Canonical order — used as-is across the entire site. Do not sort in components.
-// 1. Hrvatska  2. Grčka  3. Italija  4. Makedonija  5. Srbija  6. Slovenija*  7. BiH*
+// 1. Hrvatska  2. Grčka  3. Makedonija  4. Italija  5. Srbija  6. Slovenija*  7. BiH*
 export const destinations = [
   {
     id: 1,
@@ -102,30 +102,6 @@ export const destinations = [
     departures: 'Svakodnevni polasci iz Beograda',
   },
   {
-    id: 6,
-    slug: 'italija',
-    name: 'Italija',
-    country: 'Italija',
-    flag: '🇮🇹',
-    cities: ['Trst'],
-    priceFrom: 85,
-    currency: 'EUR',
-    description:
-      'Italija je zemlja umetnosti, mode, gastronomije i nezaboravnih pejzaža. Trst je kosmopolitski lučki grad na Jadranskom moru koji spaja italijansku, austrijsku i slovenačku kulturu. Naš kombi prevoz obezbeđuje udoban prevoz od vrata do vrata uz iskusne vozače i klimatizovana vozila.',
-    highlights: ['Trst — luka na Jadranu', 'Italijanska gastronomija', 'Moda i dizajn'],
-    image: damianoImg,
-    popular: false,
-    regions: [
-      {
-        name: 'Trst',
-        cities: ['Trst'],
-        oneWay: 85,
-        roundTrip: 160,
-      },
-    ],
-    departures: 'Svakodnevni polasci iz Beograda',
-  },
-  {
     id: 5,
     slug: 'makedonija',
     name: 'Makedonija',
@@ -151,6 +127,30 @@ export const destinations = [
         cities: ['Ohrid'],
         oneWay: 65,
         roundTrip: 120,
+      },
+    ],
+    departures: 'Svakodnevni polasci iz Beograda',
+  },
+  {
+    id: 6,
+    slug: 'italija',
+    name: 'Italija',
+    country: 'Italija',
+    flag: '🇮🇹',
+    cities: ['Trst'],
+    priceFrom: 85,
+    currency: 'EUR',
+    description:
+      'Italija je zemlja umetnosti, mode, gastronomije i nezaboravnih pejzaža. Trst je kosmopolitski lučki grad na Jadranskom moru koji spaja italijansku, austrijsku i slovenačku kulturu. Naš kombi prevoz obezbeđuje udoban prevoz od vrata do vrata uz iskusne vozače i klimatizovana vozila.',
+    highlights: ['Trst — luka na Jadranu', 'Italijanska gastronomija', 'Moda i dizajn'],
+    image: damianoImg,
+    popular: false,
+    regions: [
+      {
+        name: 'Trst',
+        cities: ['Trst'],
+        oneWay: 85,
+        roundTrip: 160,
       },
     ],
     departures: 'Svakodnevni polasci iz Beograda',

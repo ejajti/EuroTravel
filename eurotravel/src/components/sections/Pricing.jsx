@@ -24,7 +24,7 @@ const cardVariants = {
 };
 
 function PricingCard({ dest }) {
-  const isPopular = dest.slug === 'hrvatska';
+  const isPopular = dest.slug === 'hrvatska' || dest.slug === 'grcka';
 
   const waText = `Zdravo! Zanima me cena prevoza do ${dest.name}. Možete li mi poslati ponudu?`;
 
