@@ -1,5 +1,5 @@
 // GA4 Measurement ID — replace G-XXXXXXXXXX with your real ID from Google Analytics
-export const GA_ID = 'G-XXXXXXXXXX';
+export const GA_ID = 'G-CX53KCB1N8';
 
 export function trackEvent(eventName, params = {}) {
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
