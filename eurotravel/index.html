@@ -28,7 +28,7 @@
     <meta name="twitter:title" content="Euro Travel – Kombi prevoz iz Beograda u Evropu" />
     <meta name="twitter:description" content="Kombi prevoz iz Beograda do Hrvatske, Grčke, Italije i Makedonije. Prevoz od vrata do vrata." />
     <meta name="twitter:image" content="https://eurotravel.rs/videos/hero-van-poster.jpg" />
-    <!-- Structured data: TravelAgency -->
+    <!-- Structured data: TravelAgency / LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,21 +38,59 @@
       "telephone": "+381693539444",
       "email": "office@eurotravel.rs",
       "image": "https://eurotravel.rs/videos/hero-van-poster.jpg",
+      "logo": "https://eurotravel.rs/favicon.svg",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Beograd",
         "addressCountry": "RS"
       },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
       "areaServed": [
         { "@type": "Country", "name": "Hrvatska" },
         { "@type": "Country", "name": "Grčka" },
         { "@type": "Country", "name": "Severna Makedonija" },
         { "@type": "Country", "name": "Italija" },
-        { "@type": "Country", "name": "Srbija" }
+        { "@type": "Country", "name": "Srbija" },
+        { "@type": "Country", "name": "Bosna i Hercegovina" },
+        { "@type": "Country", "name": "Slovenija" }
       ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Kombi prevoz destinacije",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kombi prevoz Beograd–Hrvatska" }, "price": "60", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kombi prevoz Beograd–Grčka" },    "price": "75", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kombi prevoz Beograd–Makedonija" }, "price": "65", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kombi prevoz Beograd–Slovenija" }, "price": "75", "priceCurrency": "EUR" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kombi prevoz Beograd–BiH" },     "price": "35", "priceCurrency": "EUR" }
+        ]
+      },
       "sameAs": ["https://instagram.com/eurotravel.rs"],
-      "priceRange": "€€"
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card"
     }
+    </script>
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     </script>
   </head>
   <body>

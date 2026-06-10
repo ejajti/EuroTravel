@@ -4,6 +4,7 @@ import { Phone, Mail, CheckCircle2, Loader2 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import InstagramIcon from '../ui/InstagramIcon';
 import ViberIcon from '../ui/ViberIcon';
+import { trackEvent } from '../../lib/analytics';
 import {
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
@@ -98,6 +99,7 @@ export default function Contact({ headingLevel = 'h2' }) {
 
     setLoadingChannel(channel);
     const text = buildText();
+    trackEvent('contact_form_send', { channel });
 
     setTimeout(() => {
       if (channel === 'whatsapp') {
@@ -190,6 +192,7 @@ export default function Contact({ headingLevel = 'h2' }) {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  onClick={() => trackEvent('cta_click', { type: label.toLowerCase(), location: 'contact_section' })}
                   className={`flex items-center gap-2 ${bg} text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-150 active:scale-95`}
                 >
                   <Icon size={16} />

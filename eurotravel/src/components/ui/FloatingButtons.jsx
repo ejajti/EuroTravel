@@ -2,6 +2,7 @@ import { Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { PHONE_PRIMARY_HREF, WA_BASE, VIBER_HREF } from '../../data/contact';
 import ViberIcon from '../ui/ViberIcon';
+import { trackEvent } from '../../lib/analytics';
 
 export default function FloatingButtons() {
   return (
@@ -9,6 +10,7 @@ export default function FloatingButtons() {
       <a
         href={PHONE_PRIMARY_HREF}
         aria-label="Pozovite nas"
+        onClick={() => trackEvent('cta_click', { type: 'phone', location: 'floating' })}
         className="relative w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-lg hover:bg-yellow-500 transition-colors duration-150"
       >
         <Phone size={26} className="text-white" aria-hidden="true" />
@@ -16,6 +18,7 @@ export default function FloatingButtons() {
       <a
         href={VIBER_HREF}
         aria-label="Kontaktirajte nas na Viber"
+        onClick={() => trackEvent('cta_click', { type: 'viber', location: 'floating' })}
         className="relative w-14 h-14 rounded-full bg-[#7360F2] flex items-center justify-center shadow-lg hover:bg-[#6250e0] transition-colors duration-150"
       >
         <ViberIcon size={26} className="text-white" />
@@ -25,6 +28,7 @@ export default function FloatingButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Kontaktirajte nas na WhatsApp"
+        onClick={() => trackEvent('cta_click', { type: 'whatsapp', location: 'floating' })}
         className="relative w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:bg-[#1ebe5d] transition-colors duration-150"
       >
         <FaWhatsapp size={26} className="text-white" />

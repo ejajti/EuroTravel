@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingButtons from './components/ui/FloatingButtons';
+import { trackPageView } from './lib/analytics';
 
 const Home             = lazy(() => import('./pages/Home'));
 const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
@@ -31,10 +32,19 @@ function ScrollToTop() {
   return null;
 }
 
+function RouteTracker() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    trackPageView(pathname);
+  }, [pathname]);
+  return null;
+}
+
 function Layout() {
   return (
     <>
       <ScrollToTop />
+      <RouteTracker />
       <Navbar />
       <Suspense fallback={<PageSpinner />}>
         <Outlet />

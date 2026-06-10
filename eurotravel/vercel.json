@@ -1,4 +1,22 @@
 {
+  "redirects": [
+    { "source": "/kombi-prevoz-hrvatska",   "destination": "/destinacije/hrvatska",  "permanent": true },
+    { "source": "/kombi-prevoz-hrvatska/",  "destination": "/destinacije/hrvatska",  "permanent": true },
+    { "source": "/kombi-prevoz-grcka",      "destination": "/destinacije/grcka",     "permanent": true },
+    { "source": "/kombi-prevoz-grcka/",     "destination": "/destinacije/grcka",     "permanent": true },
+    { "source": "/kombi-prevoz-zagreb",     "destination": "/destinacije/hrvatska",  "permanent": true },
+    { "source": "/kombi-prevoz-zagreb/",    "destination": "/destinacije/hrvatska",  "permanent": true },
+    { "source": "/kombi-prevoz-sarajevo",   "destination": "/destinacije/bih",       "permanent": true },
+    { "source": "/kombi-prevoz-sarajevo/",  "destination": "/destinacije/bih",       "permanent": true },
+    { "source": "/kombi-prevoz-maribor",    "destination": "/destinacije/slovenija", "permanent": true },
+    { "source": "/kombi-prevoz-maribor/",   "destination": "/destinacije/slovenija", "permanent": true },
+    { "source": "/kombi-prevoz-ljubljana",  "destination": "/destinacije/slovenija", "permanent": true },
+    { "source": "/kombi-prevoz-ljubljana/", "destination": "/destinacije/slovenija", "permanent": true },
+    { "source": "/cene/",                   "destination": "/cene",                  "permanent": true },
+    { "source": "/kontakt/",               "destination": "/kontakt",               "permanent": true },
+    { "source": "/destinacije/",           "destination": "/destinacije",           "permanent": true },
+    { "source": "/najam/",                 "destination": "/najam",                 "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
