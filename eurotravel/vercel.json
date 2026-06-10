@@ -15,7 +15,21 @@
     { "source": "/cene/",                   "destination": "/cene",                  "permanent": true },
     { "source": "/kontakt/",               "destination": "/kontakt",               "permanent": true },
     { "source": "/destinacije/",           "destination": "/destinacije",           "permanent": true },
-    { "source": "/najam/",                 "destination": "/najam",                 "permanent": true }
+    { "source": "/najam/",                 "destination": "/najam",                 "permanent": true },
+    { "source": "/kombi-prevoz/halkidiki",  "destination": "/destinacije/grcka",      "permanent": true },
+    { "source": "/kombi-prevoz/halkidiki/", "destination": "/destinacije/grcka",      "permanent": true },
+    { "source": "/kombi-prevoz/istra",      "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/istra/",     "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/split",      "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/split/",     "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/zagreb",     "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/zagreb/",    "destination": "/destinacije/hrvatska",   "permanent": true },
+    { "source": "/kombi-prevoz/ohrid",      "destination": "/destinacije/makedonija", "permanent": true },
+    { "source": "/kombi-prevoz/ohrid/",     "destination": "/destinacije/makedonija", "permanent": true },
+    { "source": "/kombi-prevoz/jahorina",   "destination": "/destinacije/bih",        "permanent": true },
+    { "source": "/kombi-prevoz/jahorina/",  "destination": "/destinacije/bih",        "permanent": true },
+    { "source": "/kombi-prevoz/sarajevo",   "destination": "/destinacije/bih",        "permanent": true },
+    { "source": "/kombi-prevoz/sarajevo/",  "destination": "/destinacije/bih",        "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
