@@ -84,17 +84,135 @@
       "paymentAccepted": "Cash, Credit Card"
     }
     </script>
-    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX53KCB1N8"></script>
+    <!-- Cookie Consent Mode v2 — must be BEFORE GTM -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CX53KCB1N8', { send_page_view: false });
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        'ad_storage':         'denied',
+        'ad_user_data':       'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage':  'denied',
+        'wait_for_update':    500
+      });
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNMVN7XV');</script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNMVN7XV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Cookie Consent Banner -->
+    <style>
+      #cc-bar{
+        position:fixed; left:50%; bottom:24px; transform:translateX(-50%);
+        width:min(640px,calc(100% - 28px));
+        background:#0d1b30; color:#eef2f8;
+        border:1px solid rgba(214,169,78,.35);
+        border-radius:14px;
+        box-shadow:0 16px 44px rgba(0,0,0,.45);
+        padding:22px 24px; z-index:99999;
+        font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+        display:none;
+      }
+      #cc-bar .head{ display:flex; align-items:center; gap:11px; margin-bottom:9px; }
+      #cc-bar .head svg{ flex:0 0 auto; }
+      #cc-bar .head h3{
+        margin:0; font-size:16px; font-weight:700; letter-spacing:.3px; color:#d6a94e;
+      }
+      #cc-bar p{ margin:0 0 18px; font-size:14px; line-height:1.55; color:#c4cdda; }
+      #cc-bar .row{ display:flex; gap:11px; flex-wrap:wrap; }
+      #cc-bar button{
+        flex:1 1 auto; min-width:130px; cursor:pointer;
+        border-radius:9px; padding:12px 18px; font-size:14px;
+        font-weight:600; transition:all .15s ease;
+      }
+      #cc-acc{ background:#d6a94e; color:#0d1b30; border:1px solid #d6a94e; }
+      #cc-acc:hover{ background:#e4bd6a; border-color:#e4bd6a; }
+      #cc-rej{ background:transparent; color:#d6a94e; border:1px solid rgba(214,169,78,.55); }
+      #cc-rej:hover{ background:rgba(214,169,78,.12); }
+      #cc-reopen{
+        position:fixed; left:18px; right:auto; bottom:18px; z-index:99998;
+        width:46px; height:46px; border-radius:50%; cursor:pointer;
+        background:#0d1b30; border:1px solid rgba(214,169,78,.45);
+        box-shadow:0 6px 18px rgba(0,0,0,.35);
+        display:none; align-items:center; justify-content:center;
+      }
+      #cc-reopen:hover{ background:#13243f; }
+      @media(max-width:520px){
+        #cc-bar{ left:50%; right:auto; transform:translateX(-50%); bottom:16px; width:calc(100% - 24px); }
+        #cc-reopen{ left:16px; right:auto; bottom:16px; }
+      }
+    </style>
+    <div id="cc-bar" role="dialog" aria-label="Kolačići">
+      <div class="head">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-4-4 4 4 0 0 1-4-4 2 2 0 0 0-2-2Z" fill="#d6a94e"/>
+          <circle cx="9"  cy="11" r="1.1" fill="#0d1b30"/>
+          <circle cx="14" cy="14" r="1.1" fill="#0d1b30"/>
+          <circle cx="13" cy="8"  r="1"   fill="#0d1b30"/>
+          <circle cx="8"  cy="15.5" r="1" fill="#0d1b30"/>
+        </svg>
+        <h3>Kolačići</h3>
+      </div>
+      <p>Koristimo kolačiće za analitiku i oglašavanje kako bismo unapredili Vaše iskustvo na sajtu.</p>
+      <div class="row">
+        <button id="cc-rej">Odbij</button>
+        <button id="cc-acc">Prihvati</button>
+      </div>
+    </div>
+    <button id="cc-reopen" title="Podešavanja kolačića" aria-label="Podešavanja kolačića">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-4-4 4 4 0 0 1-4-4 2 2 0 0 0-2-2Z" fill="#d6a94e"/>
+        <circle cx="9" cy="11" r="1.1" fill="#0d1b30"/>
+        <circle cx="14" cy="14" r="1.1" fill="#0d1b30"/>
+        <circle cx="13" cy="8" r="1" fill="#0d1b30"/>
+      </svg>
+    </button>
+    <script>
+    (function(){
+      var KEY='cc_consent', DAYS=180;
+      var bar=document.getElementById('cc-bar');
+      var reopen=document.getElementById('cc-reopen');
+      function g(){ window.gtag && window.gtag.apply(null,arguments); }
+      function apply(ok){
+        g('consent','update',{
+          'ad_storage':         ok?'granted':'denied',
+          'ad_user_data':       ok?'granted':'denied',
+          'ad_personalization': ok?'granted':'denied',
+          'analytics_storage':  ok?'granted':'denied'
+        });
+        dataLayer.push({event:'cookie_consent_update', granted:ok});
+      }
+      function save(ok){
+        try{ localStorage.setItem(KEY, JSON.stringify({ok:ok, ts:Date.now()})); }catch(e){}
+      }
+      function load(){
+        try{
+          var c=JSON.parse(localStorage.getItem(KEY)||'null');
+          if(!c) return null;
+          if((Date.now()-c.ts)/86400000 > DAYS) return null;
+          return c;
+        }catch(e){ return null; }
+      }
+      function hide(){ bar.style.display='none'; reopen.style.display='flex'; }
+      function show(){ bar.style.display='block'; reopen.style.display='none'; }
+      document.getElementById('cc-acc').onclick=function(){ apply(true);  save(true);  hide(); };
+      document.getElementById('cc-rej').onclick=function(){ apply(false); save(false); hide(); };
+      reopen.onclick=show;
+      var saved=load();
+      if(saved){ apply(saved.ok); reopen.style.display='flex'; }
+      else{ show(); }
+    })();
+    </script>
   </body>
 </html>
