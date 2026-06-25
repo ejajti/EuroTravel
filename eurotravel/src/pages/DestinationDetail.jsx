@@ -6,6 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { destinations, UNAVAILABLE_DESTINATIONS } from '../data/destinations';
 import { usePageMeta } from '../hooks/usePageMeta';
 import Badge from '../components/ui/Badge';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 import { WA_BASE, VIBER_HREF } from '../data/contact';
 import ViberIcon from '../components/ui/ViberIcon';
 
@@ -142,15 +143,15 @@ export default function DestinationDetail() {
     <main>
       {/* Hero banner */}
       <section className="relative h-72 sm:h-96 overflow-hidden">
-        <img
-          src={dest.image}
+        <ResponsiveImage
+          image={dest.image}
           alt={`${nameGen} – kombi prevoz iz Beograda`}
           className="w-full h-full object-cover"
           width={1280}
           height={384}
+          sizes="100vw"
           loading="eager"
-          decoding="async"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
 

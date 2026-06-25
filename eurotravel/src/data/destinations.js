@@ -1,10 +1,14 @@
-import spencerImg    from '../assets/images/spencer-davis-fWtJvFqyUQQ-unsplash.jpg';
-import ryanImg       from '../assets/images/ryan-spencer-XGKaRnWjv1c-unsplash.jpg';
-import joannaImg     from '../assets/images/joanna-chmielova-HcLbTGJ7_JI-unsplash.jpg';
-import christianImg  from '../assets/images/christian-lue-AeUkq4YKvHU-unsplash.jpg';
-import hendrikImg    from '../assets/images/hendrik-morkel-002kiku-xOM-unsplash.jpg';
-import damianoImg    from '../assets/images/damiano-baschiera-hFXZ5cNfkOk-unsplash.jpg';
-import dimitrijeImg  from '../assets/images/dimitrije-milenkovic-Wa9gkmHOTf8-unsplash.jpg';
+import { imageSet } from '../lib/images';
+
+// Responsive AVIF/WebP/JPEG sets (originals live in /originals-backup, derivatives
+// in src/assets/images/optimized — see scripts/optimize-media.mjs).
+const spencerImg    = imageSet('spencer-davis-fWtJvFqyUQQ-unsplash');
+const ryanImg       = imageSet('ryan-spencer-XGKaRnWjv1c-unsplash');
+const joannaImg     = imageSet('joanna-chmielova-HcLbTGJ7_JI-unsplash');
+const christianImg  = imageSet('christian-lue-AeUkq4YKvHU-unsplash');
+const hendrikImg    = imageSet('hendrik-morkel-002kiku-xOM-unsplash');
+const damianoImg    = imageSet('damiano-baschiera-hFXZ5cNfkOk-unsplash');
+const dimitrijeImg  = imageSet('dimitrije-milenkovic-Wa9gkmHOTf8-unsplash');
 
 export const UNAVAILABLE_DESTINATIONS = ['slovenija', 'bih'];
 
