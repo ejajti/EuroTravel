@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { UNAVAILABLE_DESTINATIONS } from '../../data/destinations';
 import Badge from './Badge';
+import ResponsiveImage from './ResponsiveImage';
 import { cardVariants } from '../../lib/motion';
 
 export default function DestinationCard({ dest }) {
@@ -18,14 +19,14 @@ export default function DestinationCard({ dest }) {
       >
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
-          <img
-            src={dest.image}
+          <ResponsiveImage
+            image={dest.image}
             alt={`Kombi prevoz do ${dest.name} – ${dest.cities[0]}`}
             width={400}
             height={192}
+            sizes="(max-width: 640px) 100vw, 400px"
             className={`w-full h-full object-cover ${unavailable ? 'grayscale' : 'transition-transform duration-500 group-hover:scale-110'}`}
             loading="lazy"
-            decoding="async"
           />
           <div className="absolute top-3 left-3">
             {unavailable
