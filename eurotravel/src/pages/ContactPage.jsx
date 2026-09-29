@@ -4,8 +4,8 @@ import Contact from '../components/sections/Contact';
 
 export default function ContactPage() {
   usePageMeta(
-    'Kontakt – Euro Travel Beograd',
-    'Kontaktirajte Euro Travel Beograd za rezervaciju kombi prevoza. Telefon, WhatsApp, Viber. Dostupni svaki dan, hitni upiti 24/7.',
+    'Kontakt',
+    'Kontaktirajte Euro Travel za rezervaciju kombi prevoza iz Beograda. Telefon, WhatsApp, Viber. Dostupni svaki dan, hitni upiti 24/7.',
   );
 
   return (
